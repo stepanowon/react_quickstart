@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.js"></script>
+    <script type="text/babel">
+        axios.get("http://apis.skplanetx.com/weather/current/minutely?version=1&city=서울&county=강남구&village=도곡동&appKey=a19685d2-270d-31ff-8952-5ed96645a8be")
+        .then((response)=> {
+            console.log(response);  
+        })
+        .catch((error)=> {
+            console.log(error);
+        })
+    </script>
+</head>
+<body>
+
+</body>
+</html>

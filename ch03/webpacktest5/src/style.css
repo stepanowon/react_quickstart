@@ -1,0 +1,9 @@
+table.list  { width: 600px; border:1px solid black; border-collapse:collapse; }
+table.list td, table.list th { border:1px solid black;  text-align:center; }
+table.list > thead > tr { color:yellow; background-color: purple; }
+.title {     
+    background-color:aqua; border: solid 1px brown; width:578px; 
+    text-align: center; font-size:15pt; padding:10px 10px 10px 10px;
+    font-weight:bold;
+    display: flex;   
+}

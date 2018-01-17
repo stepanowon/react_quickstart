@@ -1,0 +1,9 @@
+.container {
+  width:200px;
+}
+.time {
+  font-family: 'Verdana', ;
+  font-size: 30pt;
+  text-align: center;
+  text-shadow: 0px 0px 20px;
+}
