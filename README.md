@@ -1,2 +1,2 @@
-# react_quickstart
-react_quickstart
+# react_quickstart 예제 파일
+
