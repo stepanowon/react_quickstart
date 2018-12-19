@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class ContactItem extends Component {
-    constructor(props) {
-        super(props);
-        this.deleteContactItem = this.deleteContactItem.bind(this);    
-    }
-
-    deleteContactItem() {
-        this.props.deleteContact(this.props.no);
-    } 
 
     render() {
         return (
