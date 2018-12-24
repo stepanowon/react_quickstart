@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
 class TodoList extends Component {
+
     render() {
-        console.log("## TodoList 렌더!!")
         let todoItems = this.props.todolist.map((item)=> {
             return (
                 <TodoItem key={item.no} {...item} deleteTodo={this.props.deleteTodo} 

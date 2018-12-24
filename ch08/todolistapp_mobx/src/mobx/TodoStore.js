@@ -1,5 +1,4 @@
 import { observable, action } from 'mobx';
-import produce from 'immer';
 
 class TodoStore {
     @observable todolist = [
@@ -9,21 +8,17 @@ class TodoStore {
     ]
 
     @action addTodo = (todo) => {
-        this.todolist = produce(this.todolist, (draft)=>{
-            draft.push({ no: new Date().getTime(), todo:todo, done:false })
-        });
+        this.todolist.push({ no: new Date().getTime(), todo:todo, done:false })
     }
     @action deleteTodo = (no) => {
         let index = this.todolist.findIndex((item)=> item.no === no);
-        this.todolist = produce(this.todolist, (draft)=>{
-            draft.splice(index,1);
-        });
+        this.todolist.splice(index,1);
     }
     @action toggleDone = (no) => {
         let index = this.todolist.findIndex((item)=> item.no === no);
-        this.todolist = produce(this.todolist, (draft)=>{
-            draft[index].done = !draft[index].done;
-        });
+        let todo = this.todolist[index];
+        todo.done = !todo.done;
+        this.todolist[index] = { ...todo};
     }
 }
 

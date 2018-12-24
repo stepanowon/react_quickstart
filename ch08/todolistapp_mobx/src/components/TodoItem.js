@@ -9,10 +9,6 @@ class TodoItem extends Component {
         this.toggleHandler = this.toggleHandler.bind(this);
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return nextProps.no !== this.props.no || nextProps.done !== this.props.done;
-    }
-
     deleteHandler() {
         this.props.deleteTodo(this.props.no);
     }
@@ -22,7 +18,6 @@ class TodoItem extends Component {
     }
 
     render() {
-        console.log("## TodoItem 렌더!!")
         let itemClassName = "list-group-item";
         if (this.props.done) itemClassName +=" list-group-item-success";
         return (
