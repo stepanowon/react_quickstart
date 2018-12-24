@@ -2,7 +2,7 @@
 ## React에서 Mobx를 decorator와 함께 사용하려면?
 * create-react-app 으로 작성한 코드를 yarn eject 로 분해한 후
 * yarn add mobx mobx-react
-* yarn add -D @babel/plugin-transform-react-jsx @babel/plugin-transform-react-jsx-source @babel/plugin-proposal-decorators
+* yarn add -D @babel/plugin-transform-react-jsx @babel/plugin-transform-react-jsx-source @babel/plugin-proposal-decorators @babel/plugin-transform-react-jsx-self
 * 그리고 package.json에 다음의 설정을 추가한다.
 ~~~
   "babel": {
