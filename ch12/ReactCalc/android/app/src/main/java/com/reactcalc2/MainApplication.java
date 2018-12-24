@@ -1,4 +1,4 @@
-package com.reactcalc;
+package com.reactcalc2;
 
 import android.app.Application;
 
@@ -24,6 +24,11 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage()
       );
+    }
+
+    @Override
+    protected String getJSMainModuleName() {
+      return "index";
     }
   };
 
