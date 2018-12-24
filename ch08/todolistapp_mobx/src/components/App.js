@@ -7,6 +7,7 @@ import { observer, inject } from 'mobx-react';
 @observer
 class App extends Component {
     render() {
+        const { addTodo, todolist, deleteTodo, toggleDone } = this.props.todoStore;
         return (
             <div className="container">
                 <div className="well">
@@ -14,9 +15,9 @@ class App extends Component {
                 </div>
                 <div className="panel panel-default panel-borderless">
                     <div className="panel-body">
-                        <InputTodo addTodo={this.props.addTodo} />
-                        <TodoList todolist={this.props.todolist} 
-                            toggleDone={this.props.toggleDone} deleteTodo={this.props.deleteTodo}/>
+                        <InputTodo addTodo={addTodo} />
+                        <TodoList todolist={todolist} 
+                            toggleDone={toggleDone} deleteTodo={deleteTodo}/>
                     </div>
                 </div>
             </div>
