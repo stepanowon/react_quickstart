@@ -1,0 +1,3 @@
+rootProject.name = 'ReactCalc2'
+
+include ':app'
