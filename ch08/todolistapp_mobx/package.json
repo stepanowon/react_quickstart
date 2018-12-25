@@ -76,8 +76,7 @@
   ],
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.2.0",
-    "@babel/plugin-transform-react-jsx-source": "^7.2.0",
-    "babel-preset-mobx": "^2.0.0"
+    "@babel/plugin-transform-react-jsx-source": "^7.2.0"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -125,18 +124,8 @@
       "react-app"
     ],
     "plugins": [
-      [
-        "@babel/plugin-proposal-decorators",
-        {
-          "legacy": true
-        }
-      ],
-      [
-        "@babel/plugin-proposal-class-properties",
-        {
-          "loose": true
-        }
-      ]
+      [ "@babel/plugin-proposal-decorators", { "legacy": true } ],
+      [ "@babel/plugin-proposal-class-properties", { "loose": true } ]
     ]
   }
 }
