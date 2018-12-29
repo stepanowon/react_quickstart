@@ -1,7 +1,9 @@
-import { observable, action } from 'mobx';
+import { configure, observable, action } from 'mobx';
 import axios from 'axios';
 
 const BASEURL = 'http://sample.bmaster.kro.kr';
+
+configure({ enforceActions: "observed" })
 
 class ContactStore {
     @observable contacts = [];
@@ -21,13 +23,17 @@ class ContactStore {
             this.isLoading = true;
             this.contacts = [];
             axios.get(BASEURL + '/contacts_long/search/' + this.name)
-            .then((response)=> {
-                this.contacts = response.data;
-                this.isLoading = false;
-            })
-            .catch((error)=> {
-                this.isLoading = false;
-            })
+            .then(
+                action("fetchSuccess", (response)=> {
+                    this.contacts = response.data;
+                    this.isLoading = false;
+                })
+            )
+            .catch(
+                action("fetchError", (error)=> {
+                    this.isLoading = false;
+                })
+            )
         }
     }   
 
@@ -35,36 +41,30 @@ class ContactStore {
         this.name = name;
         this.isLoading = true;
         axios.post(BASEURL + '/contacts', { name:name, tel:tel, address:address })
-        .then((response)=> {
-            if (response.data.status === 'success') {
-                this.isLoading = false;
-                this.searchContact();
-            } else {
-                this.isLoading = false;
-                console.log("추가 실패!!");
-            }
-        })
-        .catch((error)=> {
-            this.isLoading = false;
-            console.log(error);
-        })
+        .then(this.transProcess, this.transError);
     }
 
     @action deleteContact = (no) => {
+        this.isLoading = true;
         axios.delete(BASEURL+'/contacts/'+no)
-        .then((response)=> {
-            if (response.data.status === 'success') {
-                this.isLoading = false;
-                this.searchContact();
-            } else {
-                this.isLoading = false;
-                console.log("삭제 실패!!");
-            }
-        })
-        .catch((error)=> {
+        .then(this.transProcess, this.transError);
+    }
+
+    @action
+    transProcess = (response) => {
+        if (response.data.status === 'success') {
             this.isLoading = false;
-            console.log(error);
-        })
+            this.searchContact();
+        } else {
+            this.isLoading = false;
+            console.log("삭제 실패!!");
+        }
+    }
+
+    @action
+    transError= (error) => {
+        this.isLoading = false;
+        console.log(error);
     }
 }
 
