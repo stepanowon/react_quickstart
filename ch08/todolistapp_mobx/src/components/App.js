@@ -8,7 +8,6 @@ import DevTools from "mobx-react-devtools";
 @observer
 class App extends Component {
     render() {
-        const { addTodo, todolist, deleteTodo, toggleDone } = this.props.todoStore;
         return (
             <div className="container">
                 <div className="well">
@@ -16,9 +15,8 @@ class App extends Component {
                 </div>
                 <div className="panel panel-default panel-borderless">
                     <div className="panel-body">
-                        <InputTodo addTodo={addTodo} />
-                        <TodoList todolist={todolist} 
-                            toggleDone={toggleDone} deleteTodo={deleteTodo}/>
+                        <InputTodo />
+                        <TodoList />
                     </div>
                 </div>
                 <DevTools />

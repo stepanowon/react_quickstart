@@ -5,9 +5,12 @@ import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import todoStore from './mobx/TodoStore';
+import { Provider } from 'mobx-react';
 
 ReactDOM.render(
-    <App todoStore={todoStore} />,
+  <Provider todoStore={todoStore}>
+    <App />
+  </Provider>,
     document.getElementById('root')
   );
 // If you want your app to work offline and load faster, you can change

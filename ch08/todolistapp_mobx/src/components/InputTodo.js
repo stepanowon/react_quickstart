@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { observer, inject } from 'mobx-react';
 
+@inject('todoStore')
+@observer
 class InputTodo extends Component {
     constructor() {
         super()
@@ -12,7 +14,7 @@ class InputTodo extends Component {
     }
 
     addHandler(e) {
-        this.props.addTodo(this.state.todo);
+        this.props.todoStore.addTodo(this.state.todo);
         this.setState({ todo: "" })
     }
 
@@ -35,9 +37,5 @@ class InputTodo extends Component {
         );
     }
 }
-
-InputTodo.propTypes = {
-    addTodo : PropTypes.func.isRequired
-};
 
 export default InputTodo;

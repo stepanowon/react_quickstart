@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
+import { observer, inject } from 'mobx-react';
 
+@inject('todoStore')
+@observer
 class TodoList extends Component {
-
     render() {
-        let todoItems = this.props.todolist.map((item)=> {
+        const { todolist, deleteTodo, toggleDone } = this.props.todoStore;
+
+        let todoItems = todolist.map((item)=> {
             return (
-                <TodoItem key={item.no} {...item} deleteTodo={this.props.deleteTodo} 
-                    toggleDone={this.props.toggleDone} />
+                <TodoItem key={item.no} {...item} deleteTodo={deleteTodo} 
+                    toggleDone={toggleDone} />
             )
         })
 
@@ -21,12 +24,6 @@ class TodoList extends Component {
 
         );
     }
-}
-
-TodoList.propTypes = {
-    todolist : PropTypes.arrayOf(PropTypes.object),
-    toggleDone : PropTypes.func.isRequired,
-    deleteTodo : PropTypes.func.isRequired
 }
 
 export default TodoList;

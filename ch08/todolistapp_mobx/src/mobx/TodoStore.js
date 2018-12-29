@@ -1,4 +1,4 @@
-import { observable, action } from 'mobx';
+import { observable, action, autorun } from 'mobx';
 
 class TodoStore {
     @observable todolist = [
@@ -8,7 +8,7 @@ class TodoStore {
     ]
 
     @action addTodo = (todo) => {
-        this.todolist.push({ no: new Date().getTime(), todo:todo, done:false })
+        this.todolist.push({ no: new Date().getTime(), todo:todo, done:false });
     }
     @action deleteTodo = (no) => {
         let index = this.todolist.findIndex((item)=> item.no === no);
@@ -16,10 +16,16 @@ class TodoStore {
     }
     @action toggleDone = (no) => {
         let index = this.todolist.findIndex((item)=> item.no === no);
-        let todo = this.todolist[index];
-        todo.done = !todo.done;
-        this.todolist[index] = { ...todo};
+        console.log(this.todolist[index]);
+        //this.todolist[index].done = !this.todolist[index].done;
+        this.todolist[index].done = !this.todolist[index].done;
+        console.log(this.todolist[index]);
     }
 }
 
-export default new TodoStore();
+const store = new TodoStore();
+autorun(() => {
+    console.log(store.todolist[0].done);
+})
+
+export default store;
