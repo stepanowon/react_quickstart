@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { observer, inject } from 'mobx-react';
 
+@inject('todoStore')
+@observer
 class TodoItem extends Component {
 
     constructor() {
@@ -10,11 +13,11 @@ class TodoItem extends Component {
     }
 
     deleteHandler() {
-        this.props.deleteTodo(this.props.no);
+        this.props.todoStore.deleteTodo(this.props.no);
     }
 
     toggleHandler() {
-        this.props.toggleDone(this.props.no);
+        this.props.todoStore.toggleDone(this.props.no);
     }
 
     render() {
@@ -36,9 +39,7 @@ class TodoItem extends Component {
 TodoItem.propTypes = {
     no : PropTypes.number.isRequired,
     todo : PropTypes.string.isRequired,
-    done : PropTypes.bool.isRequired,
-    toggleDone : PropTypes.func.isRequired,
-    deleteTodo : PropTypes.func.isRequired
+    done : PropTypes.bool.isRequired
 };
 
 export default TodoItem;

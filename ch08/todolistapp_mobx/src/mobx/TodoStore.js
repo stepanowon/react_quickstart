@@ -1,4 +1,4 @@
-import { observable, action, autorun } from 'mobx';
+import { observable, action, autorun, computed } from 'mobx';
 
 class TodoStore {
     @observable todolist = [
@@ -16,16 +16,22 @@ class TodoStore {
     }
     @action toggleDone = (no) => {
         let index = this.todolist.findIndex((item)=> item.no === no);
-        console.log(this.todolist[index]);
-        //this.todolist[index].done = !this.todolist[index].done;
         this.todolist[index].done = !this.todolist[index].done;
-        console.log(this.todolist[index]);
     }
+
+    @computed get doneTodoCount() {
+        return this.todolist.filter(todo => todo.done).length;
+    }
+    @computed get ongoingTodoCount() {
+        return this.todolist.filter(todo => !todo.done).length;
+    }
+
 }
 
 const store = new TodoStore();
 autorun(() => {
-    console.log(store.todolist[0].done);
+    let todonames = store.todolist.map((item)=> item.todo)
+    console.log(todonames.join(','))
 })
 
 export default store;
