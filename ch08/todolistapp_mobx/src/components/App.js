@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import InputTodo from './InputTodo';
 import TodoList from './TodoList';
-import { observer, inject } from 'mobx-react';
 import DevTools from "mobx-react-devtools";
 
-@inject('todoStore')
-@observer
 class App extends Component {
     render() {
         return (
