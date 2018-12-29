@@ -50,8 +50,8 @@ class ContactStore {
         .then(this.transProcess, this.transError);
     }
 
-    @action
-    transProcess = (response) => {
+    @action.bound
+    transProcess(response) {
         if (response.data.status === 'success') {
             this.isLoading = false;
             this.searchContact();
@@ -61,8 +61,8 @@ class ContactStore {
         }
     }
 
-    @action
-    transError= (error) => {
+    @action.bound
+    transError(error) {
         this.isLoading = false;
         console.log(error);
     }
