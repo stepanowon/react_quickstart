@@ -15,3 +15,18 @@
     ]
   }
 ~~~
+
+## CRA에서 decorator 문법 warning 제거하기
+
+* VSCode에서 다음과 같은 warning이 나타나는게 눈에 거슬린다면 약간의 설정이 필요하다.
+![warning about decorator syntax](https://github.com/stepanowon/react_quickstart/blob/master/ch08/warning_decorator_syntax.png)
+
+* 다음과 같이 tsconfig.json 파일을 추가하면 된다.
+~~~
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "allowJs" : true
+    }
+}
+~~~
