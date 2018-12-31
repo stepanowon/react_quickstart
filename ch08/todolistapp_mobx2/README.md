@@ -21,12 +21,5 @@
 * VSCode에서 다음과 같은 warning이 나타나는게 눈에 거슬린다면 약간의 설정이 필요하다.
 ![warning about decorator syntax](https://github.com/stepanowon/react_quickstart/blob/master/ch08/warning_decorator_syntax.png)
 
-* 다음과 같이 tsconfig.json 파일을 추가하면 된다.
-~~~
-{
-    "compilerOptions": {
-        "experimentalDecorators": true,
-        "allowJs" : true
-    }
-}
-~~~
+* VSCode - 기본설정 - 설정 화면으로 이동해서 확장 - TypeScript 를 선택한 다음 
+* "javascript.implicitProjectConfig.experimentalDecorators" 옵션을 체크한다(true로 설정)
