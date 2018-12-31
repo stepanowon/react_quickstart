@@ -15,3 +15,7 @@
     ]
   }
 ~~~
+
+## CRA에서 decorator 문법 warning 제거하기
+
+![warning about decorator syntax](https://github.com/stepanowon/react_quickstart/blob/master/ch08/warning_decorator_syntax.png)
