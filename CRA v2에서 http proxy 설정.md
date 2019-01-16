@@ -1,4 +1,4 @@
-* src/setupProxy.js 파일을 작성한다.
+### src/setupProxy.js 파일을 작성한다.
 ~~~
 const proxy = require('http-proxy-middleware');
 
