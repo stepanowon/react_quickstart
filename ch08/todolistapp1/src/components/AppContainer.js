@@ -2,20 +2,19 @@ import App from './App';
 import TodoActionCreator from '../redux/TodoActionCreator';
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state)=> {
+const mapState = (state)=> {
     return {
         todolist : state.todolist
-    }
+    }   
 }
 
-const mapDispatchToProps = (dispatch)=> {
+const mapDispatch = (dispatch)=> {
     return {
-        addTodo : (todo) => dispatch(TodoActionCreator.addTodo(todo)),
-        deleteTodo : (no) => dispatch(TodoActionCreator.deleteTodo(no)),
-        toggleDone : (no) => dispatch(TodoActionCreator.toggleDone(no))
+        addTodo : (todo)=> dispatch(TodoActionCreator.addTodo(todo)),
+        deleteTodo : (no)=> dispatch(TodoActionCreator.deleteTodo(no)),
+        toggleDone : (no)=> dispatch(TodoActionCreator.toggleDone(no)),
     }
 }
 
-const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
-
+const AppContainer = connect(mapState, mapDispatch)(App);
 export default AppContainer;

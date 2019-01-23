@@ -2,7 +2,7 @@ import Constant from '../Constant';
 import axios from 'axios';
 
 //const BASEURL = "http://localhost:3001";
-const BASEURL = "http://sample.bmaster.kro.kr";
+const BASEURL = "/api";
 
 const ContactActionCreator = {
     changeName(name) {

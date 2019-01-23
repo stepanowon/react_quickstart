@@ -5,11 +5,9 @@ import './index.css';
 import AppContainer from './components/AppContainer';
 import TodoStore from './redux/TodoStore';
 import { Provider } from 'react-redux';
-import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
     <Provider store={TodoStore}>
         <AppContainer />
     </Provider>, 
     document.getElementById('root'));
-registerServiceWorker();

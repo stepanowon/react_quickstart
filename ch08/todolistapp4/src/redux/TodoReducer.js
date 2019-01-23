@@ -1,41 +1,38 @@
 import Constant from '../Constant';
-import update from 'immutability-helper';
+import produce from 'immer';
 
 const initialState = {
     todolist : [
-        { no:1, todo:"React 학습", done:false },
-        { no:2, todo:"Redux 학습", done:false },
-        { no:3, todo:"Bootstrap 살펴보기", done:true }
+        { no:1, todo:"React학습1", done:false },
+        { no:2, todo:"React학습2", done:false },
+        { no:3, todo:"React학습3", done:true },
+        { no:4, todo:"React학습4", done:false },
     ]
 }
 
 const TodoReducer = (todolist=initialState.todolist, action) => {
-    let index, newTodo, newTodolist, changedDone;
+    let index, newTodoList;
     switch(action.type) {
-        case Constant.ADD_TODO:
-            newTodo = { no: new Date().getTime(), todo:action.payload.todo, done:false };
-            newTodolist = update(todolist, 
-                { $push : [ newTodo ] }
-            )
-            return newTodolist;
-        case Constant.DELETE_TODO:
-            index = todolist.findIndex((todo) => todo.no === action.payload.no)
-            newTodolist = update(todolist, 
-                { 
-                    $splice: [[ index, 1 ]] 
-                }
-            )
-            return newTodolist;
-        case Constant.TOGGLE_DONE:
-            index = todolist.findIndex((todo) => todo.no === action.payload.no)
-            changedDone = !todolist[index].done;
-            newTodolist = update(todolist, {
-                [index] : {
-                    done : { $set : changedDone }
-                }
+        case Constant.ADD_TODO :
+            newTodoList = produce(todolist, (draft)=> {
+                draft.push({ no:new Date().getTime(), 
+                    todo:action.payload.todo, done:false});
             })
-            return newTodolist;
-        default:
+            return newTodoList;
+        case Constant.DELETE_TODO : 
+            console.log("강사만세!!");
+            index = todolist.findIndex((item)=>item.no === action.payload.no);
+            newTodoList = produce(todolist, (draft)=> {
+                draft.splice(index,1);
+            })
+            return newTodoList;
+        case Constant.TOGGLE_DONE : 
+            index = todolist.findIndex((item)=>item.no === action.payload.no);
+            newTodoList = produce(todolist, (draft)=> {
+                draft[index].done = !draft[index].done;
+            })
+            return newTodoList;
+        default : 
             return todolist;
     }
 }

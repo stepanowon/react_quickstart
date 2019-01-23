@@ -6,9 +6,9 @@ const initialState = {
 
 const TimeReducer = (currentTime=initialState.currentTime, action) => {
     switch(action.type) {
-        case Constant.CHANGE_TIME:
+        case Constant.CHANGE_TIME : 
             return new Date();
-        default:
+        default :
             return currentTime;
     }
 }
