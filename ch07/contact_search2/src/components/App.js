@@ -8,7 +8,7 @@ import Loading from './Loading';
 import { Portal } from 'react-portal';
 
 //const BASEURL = "http://localhost:3001";
-const BASEURL = "http://sample.bmaster.kro.kr";
+const BASEURL = "/api";
 
 class App extends Component {
     constructor(props) {
