@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import ContactActionCreator from '../actions/ContactActionCreator';
-import { connect } from 'react-redux';
-
 class AddContact extends Component {
     constructor(props) {
         super(props);
@@ -20,8 +17,8 @@ class AddContact extends Component {
         let tel = this.telInput.value;
         let address = this.addressInput.value;
         if (name !=="" && tel !=="" && address !== "") {
-            this.props.addContact(name, tel, address);
-            this.props.history.push('/');
+            this.props.addContact(name, tel, address);;
+            this.props.history.push('/')
         } else {
             alert("모든 필드를 입력해주세요")
         }
@@ -29,7 +26,7 @@ class AddContact extends Component {
 
     cancel() {
         //this.props.changeShowAddContact(false)
-        this.props.history.push('/');
+        this.props.history.push('/')
     }
 
     render() {
@@ -71,13 +68,7 @@ class AddContact extends Component {
 
 AddContact.propTypes = {
     addContact: PropTypes.func.isRequired,
+    //changeShowAddContact: PropTypes.func.isRequired
 }
 
-const mapDispatchToProps = (dispatch)=> {
-    return {
-        addContact : (name,tel,address) => dispatch(ContactActionCreator.asyncAddContact(name,tel,address)),
-    }
-}
-
-const AddContactContainer = connect(null, mapDispatchToProps)(AddContact);
-export default AddContactContainer;
+export default AddContact;

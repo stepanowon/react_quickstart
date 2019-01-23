@@ -1,7 +1,7 @@
 import { configure, observable, action } from 'mobx';
 import axios from 'axios';
 
-const BASEURL = 'http://sample.bmaster.kro.kr';
+const BASEURL = '/api';
 
 configure({ enforceActions: "observed" })
 

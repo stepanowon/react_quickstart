@@ -4,15 +4,10 @@ import PropTypes from 'prop-types';
 import InputName from './InputName';
 import ContactList from './ContactList';
 import { Link } from 'react-router-dom';
-
-import { renderRoutes } from 'react-router-config'
-import ContactActionCreator from '../actions/ContactActionCreator';
-import { connect } from 'react-redux';
-
+import { renderRoutes } from 'react-router-config';
 
 class Search extends Component {
     render() {
-        const { route } = this.props;
         return (
             <div>
                 <div className="well">
@@ -33,7 +28,7 @@ class Search extends Component {
                 </div>
                 <ContactList contacts={this.props.contacts} 
                     deleteContact={this.props.deleteContact} />
-                {renderRoutes(route.routes)}
+                { renderRoutes(this.props.route.routes) }
             </div>
         );
     }
@@ -41,6 +36,7 @@ class Search extends Component {
 
 Search.propTypes = {
     changeName : PropTypes.func.isRequired,
+    addContact : PropTypes.func.isRequired,
     deleteContact : PropTypes.func.isRequired,
     searchContact : PropTypes.func.isRequired,
 
@@ -49,23 +45,4 @@ Search.propTypes = {
     name: PropTypes.string.isRequired,
 };
 
-
-const mapStateToProps = (state)=> {
-    return {
-        contacts: state.contacts,
-        isLoading: state.isLoading,
-        name: state.name
-    }
-}
-
-const mapDispatchToProps = (dispatch)=> {
-    return {
-        changeName : (name) => dispatch(ContactActionCreator.changeName(name)),
-        deleteContact : (no) => dispatch(ContactActionCreator.asyncDeleteContact(no)),
-        searchContact : () => dispatch(ContactActionCreator.asyncSearchContact()),
-    }
-}
-
-const SearchContainer = connect(mapStateToProps, mapDispatchToProps)(Search);
-export default SearchContainer;
-
+export default Search;

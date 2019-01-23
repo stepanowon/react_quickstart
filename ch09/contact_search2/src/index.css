@@ -21,7 +21,9 @@ body {
 .form { background-color: white; margin:80px auto;
   max-width: 400px; min-width: 200px; font: 13px "verdana";
   padding: 10px 10px 10px 10px;  }
-.loading { margin:200px auto; }
+.loading { background-color: white; margin:250px auto;
+  max-width: 400px; min-width: 200px; font: 13px "verdana";
+  padding: 10px 10px 10px 10px;  }
 .form div { padding: 0;  display: block;  margin: 5px 0 5px 0; }
 .form label{ text-align: left; margin:0 0 3px 0;  padding:0px;
   display:block; font-weight: bold; }

@@ -1,6 +1,6 @@
 import Home from './components/Home';
 import About from './components/About';
-import Songs from './components/Songs/index';
+import Songs from './components/Songs';
 import SongList from './components/Songs/SongList';
 import SongDetail from './components/Songs/SongDetail';
 import NotFound from './components/NotFound';

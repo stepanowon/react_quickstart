@@ -5,7 +5,7 @@ import './index.css';
 import AppContainer from './components/AppContainer';
 import ContactStore from './store/ContactStore';
 import { Provider } from 'react-redux';
-import registerServiceWorker from './registerServiceWorker';
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <Provider store={ContactStore}>
@@ -13,4 +13,4 @@ ReactDOM.render(
     </Provider>, 
     document.getElementById('root')
 );
-registerServiceWorker();
+serviceWorker.unregister();

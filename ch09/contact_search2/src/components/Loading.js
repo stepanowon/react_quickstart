@@ -26,12 +26,11 @@ Loading.defaultProps = {
     isLoading:false
 }
 
-const mapStateToProps = (state)=> {
+const masStateToProps = (state)=> {
     return {
-        isLoading: state.isLoading,
+        isLoading: state.isLoading
     }
 }
 
-const LoadingContainer = connect(mapStateToProps, null)(Loading);
-
+const LoadingContainer = connect(masStateToProps, null)(Loading);
 export default LoadingContainer;
