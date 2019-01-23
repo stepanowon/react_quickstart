@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import List from './List';
-import update from 'immutability-helper';
+import produce from 'immer';
 
 class App extends Component {
     constructor(props) {
@@ -23,8 +23,11 @@ class App extends Component {
 
     addItem() {
         this.no++;
-        let newItems = update(this.state.items, {
-            $push : [ { no:this.no, name:'아이템 '+this.no } ]
+        // let newItems = update(this.state.items, {
+        //     $push : [ { no:this.no, name:'아이템 '+this.no } ]
+        // })
+        let newItems = produce(this.state.items, (draft)=>{
+            draft.push({ no:this.no, name:'아이템 '+this.no })
         })
         this.setState({ items : newItems })
         if (this.no % 200 === 0) {

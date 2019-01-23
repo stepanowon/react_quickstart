@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
-import update from 'immutability-helper';
 import MyButton from './MyButton';
 import List from './List';
+import produce from 'immer';
 
 class App extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-            itemlist : [ ]
+            itemlist : []
         }
+        this.addItem = this.addItem.bind(this);
     }
-
+    
     addItem() {
         if (!this.num) this.num = 0;
         this.num++;
-        let newItemList = update(this.state.itemlist, {
-            $push : [ { no:new Date().getTime(), item: "아이템 "+this.num  } ]
+
+        let newItemList = produce(this.state.itemlist, (draft)=> {
+            draft.push({ no: new Date().getTime(), 
+                item: "아이템 " + this.num});
         })
         this.setState({ itemlist : newItemList });
     }

@@ -7,7 +7,7 @@ class List extends Component {
 
     render() {
         let items = this.props.itemlist.map((item) => {
-            return (<ListItem isLog="true" key={item.no} {...item} />)
+            return (<ListItem isLog={true} key={item.no} {...item} />)
         });
     
         return (
