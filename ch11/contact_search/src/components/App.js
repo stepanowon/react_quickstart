@@ -6,6 +6,7 @@ import routes from '../routes';
 
 class App extends Component {
     render() {
+        console.log("### App Component is rendered!!");
         return (
             <div className="container">
                 {renderRoutes(routes)}
