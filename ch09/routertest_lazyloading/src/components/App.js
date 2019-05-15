@@ -12,20 +12,20 @@ import Loader from "react-loader-spinner";
 
 const Home = Loadable({
   loader: () => import(/* webpackChunkName:"home" */ "./Home"),
-  loading: () => <div>Loading!!</div>
+  loading: () => <Loader type="Bars" color="gray" height={40} width={40} />
 });
 //const About = Loadable({ loader: ()=>import(/* webpackChunkName:"about" */ './About'), loading: ()=> <div>Loading!!</div> });
 const SongList = Loadable({
   loader: () => import(/* webpackChunkName:"songs" */ "./SongList"),
-  loading: () => <div>Loading!!</div>
+  loading: () => <Loader type="Bars" color="gray" height={40} width={40} />
 });
 const Members = Loadable({
   loader: () => import(/* webpackChunkName:"members" */ "./Members"),
-  loading: () => <div>Loading!!</div>
+  loading: () => <Loader type="Bars" color="gray" height={40} width={40} />
 });
 const NotFound = Loadable({
   loader: () => import(/* webpackChunkName:"home" */ "./NotFound"),
-  loading: () => <div>Loading!!</div>
+  loading: () => <Loader type="Bars" color="gray" height={40} width={40} />
 });
 const About = Loadable({
   loader: () => {
