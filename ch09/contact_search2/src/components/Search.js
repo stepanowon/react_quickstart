@@ -36,7 +36,6 @@ class Search extends Component {
 
 Search.propTypes = {
     changeName : PropTypes.func.isRequired,
-    addContact : PropTypes.func.isRequired,
     deleteContact : PropTypes.func.isRequired,
     searchContact : PropTypes.func.isRequired,
 
