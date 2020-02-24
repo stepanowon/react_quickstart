@@ -1,0 +1,10 @@
+table._3NlIeP4YRJBGqMemAF-qWI  { width: 600px; border:1px solid black; border-collapse:collapse; }
+table._3NlIeP4YRJBGqMemAF-qWI td, table._3NlIeP4YRJBGqMemAF-qWI th { border:1px solid black;  text-align:center; }
+table._3NlIeP4YRJBGqMemAF-qWI > thead > tr { color:yellow; background-color: purple; }
+
+.mystyle { 
+    font-size:20pt; 
+    background-color:aqua; 
+    border:solid 1px gray;
+}
+ 
