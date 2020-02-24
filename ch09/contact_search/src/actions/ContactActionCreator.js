@@ -2,7 +2,8 @@ import Constant from '../Constant';
 import axios from 'axios';
 
 //const BASEURL = "http://localhost:3001";
-const BASEURL = "/api";
+//const BASEURL = "/api";
+const BASEURL = "https://ttn3vu8qga.execute-api.us-east-1.amazonaws.com/dev";
 
 const ContactActionCreator = {
     changeName(name) {
@@ -29,9 +30,9 @@ const ContactActionCreator = {
             let { name } = getState();
             if (name.length >= 2) {
                 dispatch(this.searchContactRequest(name));
-                axios.get(BASEURL + '/contacts_long/search/' + name)
+                axios.get(BASEURL + '/contacts/search/' + name)
                 .then((response)=> {
-                    dispatch(this.searchContactSuccess(response.data));
+                    dispatch(this.searchContactSuccess(response.data.data));
                 })
                 .catch((error)=> {
                     dispatch(this.searchContactFail());
@@ -46,7 +47,7 @@ const ContactActionCreator = {
             axios.post(BASEURL + '/contacts', { name:name, tel:tel, address:address })
             .then((response)=>{
                 //dispatch(this.changeShowAddContact(false));
-                if (response.data.status === 'success') {
+                if (response.data.data.status === 'success') {
                     dispatch(this.changeIsLoading(false));
                     dispatch(this.asyncSearchContact())
                 } else {

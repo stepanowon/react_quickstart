@@ -31,8 +31,4 @@ import 'react-app-polyfill/stable';
 ~~~
 
 
-## 주의사항 
-* CRA 3.x 버전에서는 개발서버일 때는 작동하지 않음. Production 모드로 빌드했을 때 정상적으로 작동함.
-* 만일개발서버상에서 작동되기를 원한다면 다음의 두가지 중 한가지 방법을 사용할 것
-  - CRA 2.x로 다운그레이드 설치하여 프로젝트 코드 생성
-  - package.json의 기존의 react-scripts를 삭제하고 2.x.x 로 재설치할 것
+
