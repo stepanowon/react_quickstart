@@ -1,8 +1,10 @@
-let employees = require('./employees');
+var data = require("./data.json");
+
 var str = "";
-str += "<h2>직원정보</h2><hr />"
-for (var i=0; i < employees.length; i++) {
-    str += '<div>' + employees[i].name + ' : ' + employees[i].email +
-              ', ' + employees[i].mobile + '</div>';
+str += "<h1>" + data.title + "</h1><hr />"
+for (var i=0; i < data.employees.length; i++) {
+    var e = data.employees[i];
+    str += '<div>' + e.name + ' : ' + e.email +
+              ', ' + e.mobile + '</div>';
 }
 document.getElementById('app').innerHTML = str;
