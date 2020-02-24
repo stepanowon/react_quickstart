@@ -4,15 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env  NODE_ENV=production  webpack",
-    "start": "cross-env  NODE_ENV=development  webpack-dev-server  --hot  --open"      
+    "build": "webpack --config webpack.prod.config.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cross-env": "^5.1.1",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.5"
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
   }
 }
